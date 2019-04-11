@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<!--[if lte IE 6]><html class="preIE7 preIE8 preIE9"><![endif]-->
+<!--[if IE 7]><html class="preIE8 preIE9"><![endif]-->
+<!--[if IE 8]><html class="preIE9"><![endif]-->
+<!--[if gte IE 9]><!--><html><!--<![endif]-->
+  <head>
+    <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Payment Portal</title>
+  <meta name="Lifetime Legal Sales Agent Payment Portal" content="Payment Portal">
+  <meta name="description" content="description here">
+  <meta name="keywords" content="keywords,here">
+  <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+    <style>
+
+        body{background: #FAFAFA; background: #FAFAFA !important; color: #6F6F6F !important; font-family: 'Open Sans', sans-serif !important;}
+        p{margin: 0px !important;}
+        h1,h2,h3,h4,h5,h5{font-family: 'Montserrat', sans-serif !important;}
+        .gradient_background{background-image: linear-gradient(to bottom, #016ba8, #1c74af, #2c7db5, #3a86bc, #468fc2, #5396c7, #5f9ecd, #6aa5d2, #78add7, #85b5dd, #92bde2, #9fc5e8); color: #ffffff; border-radius: 5px 0px 0px 5px; text-align: center;}
+        .cardPrimary{color: #707070; border-radius: 5px; font-size: 14px; background: #fff; box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.55); margin: 0 auto;}
+        #payment_card{width: 100%; height: 100vh; object-fit: cover; display: flex; flex-direction: column; justify-content: center; overflow: hidden;}
+        .cardHeader { padding-bottom: 15px; padding-top: 15px; margin-bottom: 15px; border-bottom: 1px solid #DDDDDD; text-transform: uppercase; background: #fff}
+        .cardContent{padding: 15px 0px; margin-bottom: 15px;  background: #fff; border-bottom: 1px solid #DDDDDD;}
+        .right-side, .left-side{padding: 25px 0px;}
+        button.primaryButtonContained{font-size: 14px; padding: 10px 15px; background: #016BA8; color: #ffffff; border-radius: 5px; border: none; letter-spacing: 3px; box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.15);transition: all 1s; cursor: pointer !important; text-transform: uppercase; font-weight: bold; font-family: 'Montserrat', sans-serif !important; font-size: 12px;}
+        button.primaryButtonContained:hover{background: #8934B9; box-shadow: none; cursor: pointer !important;}
+        .img-header{padding-bottom: 10px; padding-top: 15px; margin-bottom: 15px; border-bottom: 1px solid #ffffff;  }
+        .primaryInput{background: #DDDDDD; border:none; padding: 15px 15px; margin: 7.5px 0px; border-radius: 5px 5px 0px 0px; border-bottom: 2px solid #016BA8; transition: all 0.5s;  width: 100%;}
+        .left-side ul li{list-style: none;}
+        .left-side ul{padding: 0px;}
+        .order_reference{padding: 15px 0px; margin-bottom: 15px; border-bottom: 1px solid #ffffff; }
+        .order_reference li:nth-child(1){font-size: 16px;}
+        .pre_pop_payment {padding: 15px 0px; margin-bottom: 15px; border-bottom: 1px solid #ffffff; }
+        .pre_pop_payment li:nth-child(1){padding-top: 10px; font-size:32px; font-weight: bold;}
+        .primaryInput:focus{blur: none; border: none; outline-blur: none; border: none; outline: none; box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.15); border-bottom: 2px solid #8934B9;}
+        .poo{display: none;}
+        .cool, .coolTwo, .coolThree {display: none;}
+
+        .animate-text{
+  animation-duration: 30s;
+  animation-name: textfadein;
+  text-overflow: clip;
+  overflow: hidden;
+  white-space: nowrap;
+  display: block;
+  color: #13D197;
+  transition: all 1s;
+  font-size: 14px;
+  font-weight: bold;
+}
+@keyframes textfadein {
+   0%   {
+     width:0%;
+     text-overflow: clip;
+    }
+  10%   {
+     width:10%;
+     text-overflow: clip;
+    }
+  20%   {
+     width:20%;
+     text-overflow: clip;
+    }
+  30%   {
+     width:30%;
+     text-overflow: clip;
+    }
+  40%   {
+     width:40%;
+     text-overflow: clip;
+    }
+  50%   {
+     width:50%;
+     text-overflow: clip;
+    }
+  60%   {
+     width:60%;
+     text-overflow: clip;
+    }
+  70%   {
+     width:70%;
+     text-overflow: clip;
+    }
+  80%   {
+     width:80%;
+     text-overflow: clip;
+    }
+  90%   {
+     width:90%;
+     text-overflow: clip;
+    }
+  100%   {
+     width:100%;
+     text-overflow: clip;
+    }
+}
+
+body{
+  margin: 0;
+  background: #30252E;
+  color: rgb(240,102,0);
+}
+h4{
+  width: 100%;
+  position: absolute;
+  top: calc(63% + 42px);
+  left: 0;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 4px;
+  font: 300 32px/1 'Open sans condensed', sans-serif;
+}
+.loading{
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
+
+  box-sizing: border-box;
+  border-top: 8px solid rgb(248,172,132);
+  border-right: 8px solid rgba(1,107,168,0.9);
+  border-bottom: 8px solid rgba(1,107,168,0.9);
+  border-left: 8px solid rgba(1,107,168,0.9);
+  border-radius: 100%;
+
+  -webkit-animation: rotate 1s infinite ease-in-out;
+
+          animation: rotate 1s infinite ease-in-out;
+}
+@-webkit-keyframes rotate{
+	from {-webkit-transform: rotate(0deg) translate3d(0,0,0);transform: rotate(0deg) translate3d(0,0,0)}
+	to {-webkit-transform: rotate(359deg) translate3d(0,0,0);transform: rotate(359deg) translate3d(0,0,0)}
+}
+@keyframes rotate{
+	from {-webkit-transform: rotate(0deg) translate3d(0,0,0);transform: rotate(0deg) translate3d(0,0,0)}
+	to {-webkit-transform: rotate(359deg) translate3d(0,0,0);transform: rotate(359deg) translate3d(0,0,0)}
+}
+
+.show{display: none;}
+
+.auth{opacity: 0;}
+
+.auth-show{opacity: 1}
+
+.foo{display: none; text-align: center;}
+.bar{display: block; top: calc(50% - 50px);
+left: calc(50% - 50px); }
+
+.fa-check-circle{font-size: 100px; color: #13D197; margin-top: 30px;}
+
+    </style>
+
+  </head>
+
+  <body>
+        <main class="container" id="app">
+          <div id="payment_card">
+          <div class="row">
+           <div class="col-md-10 cardPrimary" >
+             <div class="row">
+              <!-- Left side col -->
+              <div class="col-md-4 gradient_background left-side">
+                <div class="img-header">
+                <img src="img/lifetimelegal_logo_white.png" class="img-fluid" />
+              </div><!-- End Img Header -->
+                 <div class="order_reference">
+                  <ul>
+                    <li>#198376901928</li>
+                    <li>Order reference</li>
+                  </ul>
+                  </div><!-- End Order reference -->
+                    <div class="pre_pop_payment">
+                      <ul>
+                        <li>£210 </li>
+                        <li>Authorised amount</li>
+                      </ul>
+                    </div><!-- End Pre Populated Payment -->
+              </div><!-- End col 4 -->
+              <!-- End Left side col -->
+
+              <div class="col-md-8 right-side">
+                <h3 class="cardHeader"><span style="color: #016BA8; font-weight: bold">card</span> &mdash; Payment</h3>
+                <div class="cardContent">
+                    <!--<input type="text" id="input-username" class="primaryInput" placeholder="John Doe">-->
+                    <div class="primaryInput"><p>John Doe</p></div>
+                          <div class="primaryInput"><p>Visa</p></div>
+                                <div class="primaryInput goo"><p class="hide">Credit Card Number</p><p class="cool">**** **** **** ****</p></div>
+                                <div class="row">
+                                  <div class="col-6">
+                                    <div id="input-expire-date" class="primaryInput gooTwo" ><p class="hideTwo">Expiration Date MM/YY</p><p class="coolTwo">** / **</p></div>
+                                  </div>
+                                          <div class="col-6">
+                                          <div id="input-cvv"class="primaryInput gooThree"><p class="hideThree">CCV</p><p class="coolThree">***</p></div>
+                                        </div>
+
+                                        </div><!--End Row -->
+                                      </div><!-- End card content -->
+                                      <div class="input-footer">
+                                          <div class="button-container clearfix">
+                                            <button class="primaryButtonContained float-right"  id="hello">SEND PAYMENT DETAILS</button>
+                                          </div><!-- End Button Container -->
+                                          <div class="auth">
+                                                  <h4>AUTHORISING</h4>
+                                          <div class='loading'></div>
+                                          </div>
+                                          <div class="foo">
+                                                  <i class="far fa-check-circle"></i>
+                                                  <h4 style=" ">PAYMENT SUCCESSFUL </h4>
+                                                  <p style="padding-top: 20px; color: #13D197;">Authorization code:<br/>
+                                                  #7588960404</p>
+                                                  <div class="button-container" style="margin-top: 60px;">
+                                                    <button class="primaryButtonContained"  id="reload">Finish</button>
+                                                  </div><!-- End Button Container -->
+                                          </div>
+
+                                        </div><!-- End input footer -->
+              </div><!-- End col 8 -->
+            </div><!-- End Row -->
+          </div><!-- End col 8 -->
+          </div><!-- End Row -->
+        </div>
+
+        </main><!-- End Main -->
+
+        <script type="text/javascript" src="app.js"></script>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+
+        <script>
+        $(function(){
+          $(".goo").on('click', function(){
+
+            $(".hide").addClass("poo"),
+            $(".cool").addClass("animate-text");
+
+        });//end click
+
+        $(".gooTwo").on('click', function(){
+
+          $(".hideTwo").addClass("poo"),
+          $(".coolTwo").addClass("animate-text");
+
+      });//end click
+
+      $(".gooThree").on('click', function(){
+
+        $(".hideThree").addClass("poo"),
+        $(".coolThree").addClass("animate-text");
+
+    });//end click
+    $("#hello").on('click', function(){
+
+      $(".auth").addClass("auth-show"),
+      $(".cardContent").hide(),
+      $(this).hide();
+      setTimeout(function() {
+       $('.auth').hide(),
+       $(".foo").addClass("bar");
+
+   }, 5000);
+
+      //$(".coolThree").addClass("animate-text");
+
+  });//end click
+
+  $('#reload').click(function() {
+    location.reload();
+});
+
+        });//End function
+
+        </script>
+
+  </body>
+
+  </html>
